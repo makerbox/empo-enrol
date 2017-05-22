@@ -1,0 +1,43 @@
+doctype transitional
+html(xmlns='http://www.w3.org/1999/xhtml')
+  head
+    meta(name='viewport', content='width=device-width')
+    meta(http-equiv='Content-Type', content='text/html; charset=UTF-8')
+    if title
+      title= title
+    style
+      include autoresponder.css
+  body(itemscope='', itemtype='http://schema.org/EmailMessage')
+    table.body-wrap
+      tr
+        td
+        td.container(width='600')
+          .content
+            table(width='100%', cellpadding='0', cellspacing='0')
+              tr
+                td.content-block.aligncenter
+                  img(src="https://empowercollege.edu.au/content/img/empower-logo-email.png",width="300",height="80",style="margin-top:20px;")
+            table.main(width='100%', cellpadding='0', cellspacing='0')
+              tr
+                td.content-wrap.aligncenter
+                  table(width='100%', cellpadding='0', cellspacing='0')
+                    tr
+                      td.content-block
+                        if data.firstName
+                          h3.aligncenter Congratulations on your enrolment, #{data.firstName}
+                        else
+                          h3.aligncenter Congratulations on your enrolment!
+                    tr
+                      td.content-block.aligncenter
+                        table.invoice
+                          tr
+                            td
+                              p One of our friendly course advisors will be in touch shortly to discuss the next steps and collect the relevant documentation to assist with finalising your enrolment.
+                    tr
+                      td.content-block.aligncenter
+                        | Empowerment Options Pty Ltd
+            .footer
+              table(width='100%')
+                tr
+                  td.aligncenter.content-block
+        td

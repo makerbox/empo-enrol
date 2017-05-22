@@ -1,0 +1,46 @@
+.courseheader {
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: 50% 50%;
+  position: relative;
+  min-height: 300px;
+  @include media($full-up) {
+    min-height: 360px;
+  }
+  @include media($huge-up) {
+    min-height: 420px;
+  }
+  @include media(min-width 2000px) {
+    min-height: 600px;
+  }
+}
+
+.courseheader-title {
+  background: transparentize($colour-white, 0.3);
+  padding: $small-spacing $small-spacing * 2;
+  margin: $small-spacing $small-spacing * 2;
+  position: absolute;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.courseheader-title--text {
+  font-size: 2.1rem;
+  max-width: 340px;
+  margin: 0;
+}
+
+.courseheader--logo:not(:last-child) {
+  margin-right: $small-spacing *2;
+}
+
+.courseheader--float {
+  flex: auto;
+}
+
+
+.courseheader-title--logos {
+  margin: 10px 0 10px 20px;
+}

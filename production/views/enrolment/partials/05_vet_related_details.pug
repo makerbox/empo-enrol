@@ -1,0 +1,409 @@
+fieldset(name="VET Related Details")
+  legend.gamma.font-header VET Related Details
+  .fieldRow.vet-required
+    .fieldGroup.row
+      .groupLabel.third.third
+        label.label.required(for='customField_fulltime') Full Time?
+      .groupFields.two-third.two-third
+        .fieldInput
+          if fulltime
+            each item, index in fulltime
+              label.label.radio
+                input.radio(type='radio', name='customField_fulltime', value=item.value,required)
+                |  #{item.label}
+
+  .fieldRow.vet-required
+    .fieldGroup.row
+      .groupLabel.third.third
+        label.label.required(for='customField_studyreason') Study Reason
+      .groupFields.two-third.two-third
+        .fieldInput
+          if studyreason
+            select#customField_studyreason.input.select(name='customField_studyreason',required)
+              option(value='',selected,disabled)  -- select --
+              each item, index in studyreason
+                option(value=item.value) #{item.label}
+
+  .fieldRow.vet-required
+    .fieldGroup.row
+      .groupLabel.third
+        label.label.required(for='CountryofBirthID') Country of Birth
+      .groupFields.two-third
+        .fieldInput
+          select.select.input#CountryofBirthID(name='CountryofBirthID',required)
+            option(value='',selected,disabled)  -- select --
+            each val, index in sacc
+              option(value=sacc[index].value) #{sacc[index].label}
+
+  .fieldRow
+    .fieldGroup.row
+      .groupLabel.third
+        label.label(for='CityofBirth') City of Birth
+      .groupFields.two-third
+        .fieldInput
+          input.input#CityofBirth(type='text', name='CityofBirth')
+
+  .fieldRow.vet-required
+    .fieldGroup.row
+      .groupLabel.third
+        label.label(for='CountryofCitizenID').required Country of Citizenship
+      .groupFields.two-third
+        .fieldInput
+          select.select.input#CountryofCitizenID(name='CountryofCitizenID',required)
+            option(value='',selected,disabled)  -- select --
+            each val, index in sacc
+              option(value=sacc[index].value) #{sacc[index].label}
+
+  .fieldRow.vet-required
+    .fieldGroup.row
+      .groupLabel.third
+        label.label(for='CitizenStatusID').required Australian Citizen Status
+      .groupFields.two-third
+        .fieldInput
+          select.select.input#CitizenStatusID(name='CitizenStatusID',required)
+            option(value='',selected,disabled)  -- select --
+            option(value='1') Australian Citizen
+            option(value='2') New Zealand Citizen
+            option(value='12') New Zealand Citizen (SCV - HELP loan eligible)
+            option(value='3') Australian Permanent Resident
+            option(value='4') Student Visa
+            option(value='5') Temporary Resident Visa
+            option(value='6') Visitor&apos;s Visa
+            option(value='7') Business Visa
+            option(value='8') Holiday Visa
+            option(value='9') Other Visa
+            option(value='10') Permanent Humanitarian Visa
+            option(value='11') Overseas - No Visa or Citizenship
+
+  .fieldRow.vet-required
+    .fieldGroup.row
+      .groupLabel.third
+        label.label(for='IndigenousStatusID').required Aboriginal or Torres Strait Islander?
+      .groupFields.two-third
+        .fieldInput
+          select.select.input#IndigenousStatusID(name='IndigenousStatusID',required)
+            option(value='',selected,disabled)  -- select --
+            option(value='4') No
+            option(value='1') Yes, Aboriginal
+            option(value='2') Yes, Torres Strait Islander
+            option(value='3') Yes, both Aboriginal and Torres Strait Islander
+
+  .fieldRow.vet-required
+    .fieldGroup.row
+      .groupLabel.third
+        label.label(for='LabourForceID').required Employment Status
+      .groupFields.two-third
+        .fieldInput
+          select.select.input#LabourForceID(name='LabourForceID',required)
+            option(value='',selected,disabled)  -- select --
+            option(value='1') Full-time employee
+            option(value='2') Part-time employee
+            option(value='3') Self-employed - not employing others
+            option(value='4') Employer
+            option(value='5') Employed - unpaid worker in a family business
+            option(value='6') Unemployed - Seeking full-time work
+            option(value='7') Unemployed - Seeking part-time work
+            option(value='8') Unemployed - Not Seeking employment
+
+  .fieldRow
+    .fieldGroup.row
+      .groupLabel.third
+        label.label(for='ANZSCOCode') Occupation Identifier (ANZSCO)
+      .groupFields.two-third
+        .fieldInput
+          select.select.input#ANZSCOCode(name='ANZSCOCode')
+            option(value='',selected,disabled)  -- select --
+            option(value='100000') Managers
+            option(value='200000') Professionals
+            option(value='300000') Technicians and trades workers
+            option(value='400000') Community and personal service workers
+            option(value='500000') Clerical and administrative workers
+            option(value='600000') Sales workers
+            option(value='700000') Machinery operators and drivers
+            option(value='800000') Labourers
+            option(value='900000') Other
+
+  .fieldRow
+    .fieldGroup.row
+      .groupLabel.third
+        label.label(for='ANZSICCode') Industry of Employment (ANZSIC)
+      .groupFields.two-third
+        .fieldInput
+          select.select.input#ANZSICCode(name='ANZSICCode')
+            option(value='',selected,disabled)  -- select --
+            option(value='A') A - Agriculture, Forestry and Fishing
+            option(value='B') B - Mining
+            option(value='C') C - Manufacturing
+            option(value='D') D - Electricity, Gas, Water and Waste Services
+            option(value='E') E - Construction
+            option(value='F') F - Wholesale Trade
+            option(value='G') G - Retail Trade
+            option(value='H') H - Accommodation and Food Services
+            option(value='I') I - Transport, Postal and Warehousing
+            option(value='J') J - Information Media and Telecommunications
+            option(value='K') K - Financial and Insurance Services
+            option(value='L') L - Rental, Hiring and Real Estate Services
+            option(value='M') M - Professional, Scientific and Technical Services
+            option(value='N') N - Administrative and Support Services
+            option(value='O') O - Public Administration and Safety
+            option(value='P') P - Education and Training
+            option(value='Q') Q - Health Care and Social Assistance
+            option(value='R') R - Arts and Recreation Services
+            option(value='S') S - Other Services
+
+  .fieldRow
+    .fieldGroup.row
+      .groupLabel.third
+        label.label(for='MainLanguageID') Main Language
+      .groupFields.two-third
+        .fieldInput
+          select.select.input#MainLanguageID(name='MainLanguageID')
+            option(value='',selected,disabled)  -- select --
+            each val, index in lang
+              option(value=lang[index].value) #{lang[index].label}
+            option(value='S') S - Other Services
+
+  .fieldRow(data-show='MainLanguageID',style='display: none')
+    .fieldGroup.row
+      .groupLabel.third
+        label.label(for='EnglishProficiencyID') Proficiency in Spoken English
+      .groupFields.two-third
+        .fieldInput
+          select.select.input#EnglishProficiencyID(name='EnglishProficiencyID')
+            option(value='',selected,disabled)  -- select --
+            option(value='1') Very well
+            option(value='2') Well
+            option(value='3') Not well
+            option(value='4') Not at all
+
+  .fieldRow(data-show='MainLanguageID',style='display: none')
+    .fieldGroup.row
+      .groupLabel.third.third
+        label.label(for='EnglishAssistanceFlag') English Assistance
+      .groupFields.two-third.two-third
+        .fieldInput
+          label.label.radio
+            input.radio(type='radio', name='EnglishAssistanceFlag', value='Yes')
+            | Yes
+          label.label.radio
+            input.radio(type='radio', name='EnglishAssistanceFlag', value='No')
+            | No
+
+  .fieldRow
+    .fieldGroup.row
+      .groupLabel.third
+        label.label(for='HighestSchoolLevelID') Highest COMPLETED School Level
+      .groupFields.two-third
+        .fieldInput.two-third
+          select.select.input#HighestSchoolLevelID(name='HighestSchoolLevelID')
+            option(value='',selected) No level of education
+            option(value='12') Completed year 12
+            option(value='11') Completed year 11
+            option(value='10') Completed year 10
+            option(value='9') Year 9 or equivalent
+            option(value='8') Year 8 or below
+            option(value='2') Never attended school
+        .fieldInput.third
+          select.select.input#HighestSchoolLevelYear(name='HighestSchoolLevelYear')
+            option(value='',selected) No year
+            option(value='2016') 2016
+            option(value='2015') 2015
+            option(value='2014') 2014
+            option(value='2013') 2013
+            option(value='2012') 2012
+            option(value='2011') 2011
+            option(value='2010') 2010
+            option(value='2009') 2009
+            option(value='2008') 2008
+            option(value='2007') 2007
+            option(value='2006') 2006
+            option(value='2005') 2005
+            option(value='2004') 2004
+            option(value='2003') 2003
+            option(value='2002') 2002
+            option(value='2001') 2001
+            option(value='2000') 2000
+            option(value='1999') 1999
+            option(value='1998') 1998
+            option(value='1997') 1997
+            option(value='1996') 1996
+            option(value='1995') 1995
+            option(value='1994') 1994
+            option(value='1993') 1993
+            option(value='1992') 1992
+            option(value='1991') 1991
+            option(value='1990') 1990
+            option(value='1989') 1989
+            option(value='1988') 1988
+            option(value='1987') 1987
+            option(value='1986') 1986
+            option(value='1985') 1985
+            option(value='1984') 1984
+            option(value='1983') 1983
+            option(value='1982') 1982
+            option(value='1981') 1981
+            option(value='1980') 1980
+            option(value='1979') 1979
+            option(value='1978') 1978
+            option(value='1977') 1977
+            option(value='1976') 1976
+            option(value='1975') 1975
+            option(value='1974') 1974
+            option(value='1973') 1973
+            option(value='1972') 1972
+            option(value='1971') 1971
+            option(value='1970') 1970
+            option(value='1969') 1969
+            option(value='1968') 1968
+            option(value='1967') 1967
+            option(value='1966') 1966
+            option(value='1965') 1965
+            option(value='1964') 1964
+            option(value='1963') 1963
+            option(value='1962') 1962
+            option(value='1961') 1961
+            option(value='1960') 1960
+            option(value='1959') 1959
+            option(value='1958') 1958
+            option(value='1957') 1957
+            option(value='1956') 1956
+            option(value='1955') 1955
+            option(value='1954') 1954
+            option(value='1953') 1953
+            option(value='1952') 1952
+            option(value='1951') 1951
+            option(value='1950') 1950
+            option(value='1949') 1949
+            option(value='1948') 1948
+            option(value='1947') 1947
+            option(value='1946') 1946
+            option(value='1945') 1945
+            option(value='1944') 1944
+            option(value='1943') 1943
+            option(value='1942') 1942
+            option(value='1941') 1941
+            option(value='1940') 1940
+            option(value='1939') 1939
+            option(value='1938') 1938
+            option(value='1937') 1937
+            option(value='1936') 1936
+            option(value='1935') 1935
+            option(value='1934') 1934
+            option(value='1933') 1933
+            option(value='1932') 1932
+            option(value='1931') 1931
+            option(value='1930') 1930
+            option(value='1929') 1929
+            option(value='1928') 1928
+            option(value='1927') 1927
+            option(value='1926') 1926
+            option(value='1925') 1925
+            option(value='1924') 1924
+            option(value='1923') 1923
+            option(value='1922') 1922
+            option(value='1921') 1921
+            option(value='1920') 1920
+            option(value='1919') 1919
+            option(value='1918') 1918
+            option(value='1917') 1917
+            option(value='1916') 1916
+  .fieldRow
+    .fieldGroup.row
+      .groupLabel.third
+        label.label(for='DisabilityTypeIDs') Disabilities
+      .groupFields.two-third
+        .fieldInput.third
+          label.label.radio
+            input.radio(type='radio', name='DisabilityFlag', value='No', selected)
+            | No
+          label.label.radio
+            input.radio(type='radio', name='DisabilityFlag', value='Yes')
+            | Yes
+            span(style='color: #656565;') :
+        .fieldInput.two-third(data-show='DisabilityFlag',style='display: none')
+          select.select.input.hassublabel#DisabilityTypeIDs(name='DisabilityTypeIDs',multiple)
+            option(value="11") Hearing/Deaf
+            option(value="12") Physical
+            option(value="13") Intellectual
+            option(value="14") Learning
+            option(value="15") Mental Illness
+            option(value="16") Acquired Brain Impairment
+            option(value="17") Vision
+            option(value="18") Medical Condition
+            option(value="19") Other
+          label.sublabel(style='color: #656565;')
+            | Hold Ctrl/Cmd to select multiple
+
+  .fieldRow
+    .fieldGroup.row
+      .groupLabel.third
+        label.label(for='PriorEducationStatus') Prior Education
+      .groupFields.two-third
+        .fieldInput.third
+          label.label.radio
+            input.radio(type='radio', name='PriorEducationStatus', value='No')
+            | No
+          label.label.radio
+            input.radio(type='radio', name='PriorEducationStatus', value='Yes')
+            | Yes
+
+  .fieldRow(data-show='PriorEducationStatus',style='display: none')
+    .fieldGroup.row
+      .groupLabel.third &nbsp;
+      .groupFields.two-third
+        .fieldInput.half
+          label.label(for='peID1') Bachelor Degree or Higher
+          select.select.input.hassublabel#peID1(name='peID1')
+            option.noData(value='') No
+            option(value='008A') Australian Qualification - Bachelor Degree or Higher Degree level
+            option(value='008E') Australian Equivalent - Bachelor Degree or Higher Degree level
+            option(value='008I') International - Bachelor Degree or Higher Degree level
+        .fieldInput.half
+          label.label(for='peID2') Advanced Diploma/ Associate Degree
+          select.select.input.hassublabel#peID2(name='peID2')
+            option.noData(value='') No
+            option(value='410A') Australian Qualification - Advanced Diploma or Associate Degree Level
+            option(value='410E') Australian Equivalent - Advanced Diploma or Associate Degree Level
+            option(value='410I') International - Advanced Diploma or Associate Degree Level
+        .fieldInput.half
+          label.label(for='peID3') Diploma
+          select.select.input.hassublabel#peID3(name='peID3')
+            option.noData(value='') No
+            option(value='420A') Australian Qualification - Diploma Level
+            option(value='420E') Australian Equivalent - Diploma Level
+            option(value='420I') International - Diploma Level
+        .fieldInput.half
+          label.label(for='peID4') Certificate IV
+          select.select.input.hassublabel#peID4(name='peID4')
+            option.noData(value='') No
+            option(value='511A') Australian Qualification - Certificate IV
+            option(value='511E') Australian Equivalent - Certificate IV
+            option(value='511I') International - Certificate IV
+        .fieldInput.half
+          label.label(for='peID5') Certificate III
+          select.select.input.hassublabel#peID5(name='peID5')
+            option.noData(value='') No
+            option(value='514A') Australian Qualification - Certificate III
+            option(value='514E') Australian Equivalent - Certificate III
+            option(value='514I') International - Certificate III
+        .fieldInput.half
+          label.label(for='peID6') Certificate II
+          select.select.input.hassublabel#peID6(name='peID6')
+            option.noData(value='') No
+            option(value='521A') Australian Qualification - Certificate II
+            option(value='521E') Australian Equivalent - Certificate II
+            option(value='521I') International - Certificate II
+        .fieldInput.half
+          label.label(for='peID7') Certificate I
+          select.select.input.hassublabel#peID7(name='peID7')
+            option.noData(value='') No
+            option(value='524A') Australian Qualification - Certificate I
+            option(value='524E') Australian Equivalent - Certificate I
+            option(value='524I') International - Certificate I
+        .fieldInput.half
+          label.label(for='peID8') Miscellaneous Education
+          select.select.input.hassublabel#peID8(name='peID8')
+            option.noData(value='') No
+            option(value='990A') Australian Qualification - Miscellaneous Education
+            option(value='990E') Australian Equivalent - Miscellaneous Education
+            option(value='990I') International - Miscellaneous Education

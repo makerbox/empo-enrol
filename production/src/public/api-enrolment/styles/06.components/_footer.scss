@@ -1,0 +1,116 @@
+$footer-colour-one: $colour-white;
+$footer-colour-two: #f9fbfa;
+$footer-colour-three: #e8e9eb;
+
+.site-footer {
+  font-size: 90%;
+}
+
+.pre-footer {
+  background-color: $footer-colour-one;
+}
+
+.footer-links {
+  background-color: $footer-colour-two;
+}
+
+.footer-secondary {
+  background-color: $footer-colour-three;
+}
+$social-colours: ( 'facebook': $colour-facebook, 'pinterest': $colour-pinterest, 'instagram': $colour-instagram, 'twitter': $colour-twitter, 'youtube': $colour-youtube, 'linkedin': $colour-linkedin );
+
+@each $brand,
+$colour in $social-colours {
+  .footer-social--#{$brand} {
+    color: currentColor;
+
+    &:active,
+    &:hover,
+    &:focus {
+      color: $colour;
+    }
+  }
+}
+
+@keyframes rainbow {
+  from {
+    filter: hue-rotate(0deg);
+  }
+
+  to {
+    filter: hue-rotate(360deg);
+  }
+}
+
+.footer-social--headmark {
+  color: currentColor;
+
+  &:hover {
+    color: #68c9d0;
+    animation: rainbow 4s steps(36) infinite;
+  }
+}
+
+.footer-links--title {
+  font-size: 14px;
+  margin-bottom: 20px;
+}
+
+.footer-secondary--blurb {
+  @include span-columns(9);
+  @include media($small) {
+    font-size: 10px;
+  }
+  @include media($smaller) {
+    @include span-columns(4);
+  }
+}
+
+.footer-secondary--social {
+  font-size: 160%;
+  color: $colour-white;
+  text-align: right;
+  @include span-columns(3);
+  @include media($smaller) {
+    @include span-columns(4);
+    margin-top: 10px;
+    text-align: center;
+  }
+}
+
+// ----------------------------------------------------------------------------
+// Footer Subscribe
+
+.footer--subscribe {
+  background-color: blue;
+}
+
+// ----------------------------------------------------------------------------
+// Footer Links
+
+.footer-social--link:not(:last-of-type) {
+  margin-right: $small-spacing / 4;
+}
+
+.footer-links--list {
+  animation-direction: alternate;
+  @include span-columns(3);
+  a {
+    display: block;
+    color: currentColor;
+    margin-bottom: 10px;
+    &.btn {
+      min-width: 0;
+    }
+  }
+  @include media($small) {
+    margin-bottom: $small-spacing;
+    @include span-columns(4);
+    @include omega(2n);
+  }
+  @include media($smaller) {
+    margin-bottom: $small-spacing;
+    @include span-columns(4);
+    @include omega(1n);
+  }
+}

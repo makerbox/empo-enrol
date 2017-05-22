@@ -1,0 +1,17 @@
+.learn.s2 .wrapper.content {
+  background-color: $colour-background-alt;
+}
+
+
+.home .set--trisplit {
+  background-image: linear-gradient(90deg, transparent, transparent 50%, rgb(248, 135, 0) 50%, rgb(248, 135, 0));
+}
+
+.panel-outdated-browser {
+  background-color: $colour-error;
+  text-align: center;
+  padding: 4px 10px;
+  a {
+    color: $colour-white;
+  }
+}

@@ -1,0 +1,50 @@
+fieldset(name="Personal Details")
+  legend.gamma.font-header Personal Details
+  .fieldRow
+    .fieldGroup.row
+      .groupLabel.third
+        label.label(for='givenName') Name
+      .groupFields.two-third
+        .fieldInput.third
+          .fieldInput.third
+            label.label(for='title').required Title
+            select#title(name='title',required).input.select
+              option(value='',disabled,selected)
+              option(value='Mr') Mr
+              option(value='Mrs') Mrs
+              option(value='Miss') Miss
+              option(value='Ms') Ms
+              option(value='Other') Other
+          .fieldInput.two-third
+            label.label.required(for='givenName') Given Name
+            input.input#givenName(type='text', name='givenName', size='12', maxlength='40',required)
+        .fieldInput.third
+          label.label(for='middleName') Middle Name
+          input.input#middleName(type='text', name='middleName', size='12', maxlength='30')
+        .fieldInput.third
+          label.label.required(for='surname') Surname
+          input.input#surname(type='text', name='surname', size='12', maxlength='40',required)
+
+  .fieldRow
+    .fieldGroup.row
+      .groupLabel.third.third
+        label.label(for='sex') Gender
+      .groupFields.two-third.two-third
+        .fieldInput
+          label.label.radio
+            input.radio(type='radio', name='sex', value='M')
+            |  Male
+          label.label.radio
+            input.radio(type='radio', name='sex', value='F')
+            |   Female
+          label.label.radio
+            input.radio(type='radio', name='sex', value='X')
+            |  Indeterminate/Intersex/Unspecified
+
+  .fieldRow
+    .fieldGroup.row
+      .groupLabel.third
+        label.label(for='dob') Date of Birth
+      .groupFields.two-third
+        .fieldInput
+          input.input#dob(type='text', name='dob', size='10', maxlength='10', placeholder="DD-MM-YYYY")

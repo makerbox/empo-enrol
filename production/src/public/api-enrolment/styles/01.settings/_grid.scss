@@ -1,0 +1,40 @@
+// @import 'neat-helpers';
+@import '../../../../../node_modules/bourbon-neat/app/assets/stylesheets/neat-helpers';
+
+$huge-px: 1280px;
+$full-px: 940px;
+$small-px: 850px;
+$smaller-px: 528px;
+
+// Em versions of our breakpoints
+$huge-em: em($huge-px);
+$full-em: em($full-px);
+$small-em: em($small-px);
+$smaller-em: em($smaller-px);
+
+// Breakpoints
+$bp-huge: $huge-em;
+$bp-full: $full-em;
+$bp-small: $small-em;
+$bp-smaller: $smaller-em;
+
+// Change the grid settings
+$column: 80px;
+$gutter: 40px;
+$grid-columns: 12;
+$max-width: $full-px;
+$show-grid: false;
+
+// Define your breakpoints
+$full: new-breakpoint(max-width $bp-full, 12);
+$small: new-breakpoint(max-width $bp-small, 8);
+$smaller: new-breakpoint(max-width $bp-smaller, 4);
+$full-up: new-breakpoint(min-width $bp-full, 12);
+$huge-up: new-breakpoint(min-width $bp-huge);
+$small-up: new-breakpoint(min-width $bp-small, 8);
+$smaller-up: new-breakpoint(min-width $bp-smaller, 4);
+
+@mixin omega-reset($nth) {
+  &:nth-child(#{$nth}) { margin-right: flex-gutter($grid-columns, $gutter); }
+  &:nth-child(#{$nth}+1) { clear: none; }
+}

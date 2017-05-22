@@ -1,0 +1,84 @@
+$course-info-margin: .75em;
+$entry-course-colour-background: #F4F4F4;
+
+// ----------------------------------------------------------------------------
+// entry-post
+
+.entry-post {
+  img.right {
+    padding: 0 0 0 $small-spacing;
+  }
+  img.left {
+    padding: 0 $small-spacing 0 0;
+  }
+}
+
+// ----------------------------------------------------------------------------
+// entry-course
+
+// entry-course-sidebar
+
+.entry-course--content {
+  background: $entry-course-colour-background;
+}
+
+.course-info ul {
+  list-style: none;
+  margin-left: 0;
+}
+
+.course-info ul,
+.course-info--body {
+  margin-bottom: $course-info-margin;
+}
+
+.course-info--title-top {
+  border: 0px solid black;
+  border-top-width: 1px;
+  border-bottom-width: 1px;
+  padding: $course-info-margin / 2 0;
+  margin-bottom: $course-info-margin;
+}
+
+
+
+// ----------------------------------------------------------------------------
+// Entry Post
+
+
+$social-colours: ( 'facebook': $colour-facebook, 'pinterest': $colour-pinterest, 'instagram': $colour-instagram, 'twitter': $colour-twitter, 'youtube': $colour-youtube, 'linkedin': $colour-linkedin );
+
+.share-button {
+  padding: .8em 1.2em;
+  border-radius: 3px;
+  display: inline-block;
+}
+.share-button--icon,
+.share-button--label {
+  display: inline-block;
+  vertical-align: middle;
+}
+.share-button--icon {
+  width: 1em;
+  height: 1em;
+  margin-right: .2em;
+}
+.share-button--icon path { fill: #fff; }
+.share-button--label {
+  //font-size: .9em;
+  font-weight: 500;
+}
+
+@each $brand,
+$colour in $social-colours {
+  .share--#{$brand} {
+    background-color: $colour;
+    color: $colour-white;
+    &:active,
+    &:hover,
+    &:focus {
+      color: $colour-white;
+      background-color: lighten($colour, 10%);
+    }
+  }
+}

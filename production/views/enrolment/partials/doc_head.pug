@@ -1,0 +1,18 @@
+meta(charset='utf-8')
+meta(name='viewport', content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0')
+meta(http-equiv='Content-Type', content='text/html; charset=UTF-8')
+if title
+  title= title
+if description
+  meta(name='description',content=description)
+if title
+  meta(property='og:title', content=title)
+if url
+  meta(property='og:url', content=url)
+if ogpimage
+  meta(property='og:image', content=ogpimage)
+if empower
+  link(rel="stylesheet", href="https://empowercollege.edu.au/assets/css/style.css?v=2")
+else
+  link(href='https://fonts.googleapis.com/css?family=Roboto:400,400i,700', rel='stylesheet')
+  link(rel="stylesheet", href="/api-enrolment/main.css")

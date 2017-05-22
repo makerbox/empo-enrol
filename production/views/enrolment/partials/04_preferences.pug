@@ -1,0 +1,92 @@
+fieldset(name="Preferences")
+  legend.gamma.font-header Preferences
+  .fieldRow
+    .fieldGroup.row
+      .groupLabel.third.third
+        label.label(for='customField_course').required Course
+      .groupFields.two-third.two-third
+        .fieldInput
+          if course
+            select#customField_course.input.select(name='customField_course',required)
+              option(value='',selected,disabled)  -- select --
+              each item, index in course
+                option(value=item.value) #{item.label}
+          else
+            select#customField_course.input.select(name='customField_course',required)
+              option(value='')  -- select --
+              option(value='CHC33015 Certificate III in Individual Support (Ageing)') CHC33015 Certificate III in Individual Support (Ageing)
+              option(value='CHC43015 Certificate IV in Ageing Support') CHC43015 Certificate IV in Ageing Support
+              option(value='CHC30113 Certificate III in Early Childhood') CHC30113 Certificate III in Early Childhood
+              option(value='CHC50113 Diploma of Early Childhood') CHC50113 Diploma of Early Childhood
+              option(value='CHC42015 Certificate IV in Community Services') CHC42015 Certificate IV in Community Services
+              option(value='CHC52015 Diploma of Community Services') CHC52015 Diploma of Community Services
+              option(value='BSB51915 Diploma of Leadership and Management') BSB51915 Diploma of Leadership and Management
+              option(value='CHC40213 Certificate IV in Education Support') CHC40213 Certificate IV in Education Support
+              option(value='DOUBLE DIPLOMA of Early Childhood Education and Care/Leadership and Management') DOUBLE DIPLOMA of Early Childhood Education and Care/Leadership and Management
+
+  .fieldRow
+    .fieldGroup.row
+      .groupLabel.third.third
+        label.label.required(for='customField_studymode') Study Mode
+      .groupFields.two-third.two-third
+        .fieldInput
+          if studymode
+            each item, index in studymode
+              label.label.radio
+                input.radio(type='radio', name='customField_studymode', value=item.value,required)
+                |  #{item.label}
+
+  .fieldRow
+    .fieldGroup.row
+      .groupLabel.third
+        label.label(for='USIVerify').required Unique Student Identifier (USI)
+      .groupFields.two-third
+        .fieldInput(style='margin-bottom: .75em')
+          label.label.radio
+            input.radio(type='radio', name='USIVerify', value='Existing', required)
+            | I already have a USI
+          label.label.radio
+            input.radio(type='radio', name='USIVerify', value='Create', required)
+            | I will create my own USI
+          //- label.label.radio
+          //-   input.radio(type='radio', name='USIVerify', value='CreateOnBehalf')
+          //-   | I give permission for Empower College to create a USI on my behalf
+
+    #USIGroup.fieldGroup.row
+      .groupLabel.third
+        label.label(for='USI') Insert USI
+      .groupFields.two-third
+        .fieldInput
+          input.input.hassublabel#USI(type='text', name='USI', pattern="/^[2-9A-HJ-NP-Z]+$/")
+          label.sublabel(style='color: #656565;')
+            span(data-show='USICreate',data-show-group='USIVerify')
+              a(href='https://www.usi.gov.au/students/create-your-usi', title='Visit the USI website to create a USI', target='_blank') Click here
+              |  to create a USI.&nbsp;
+            | Must be 10 digits in length and consist of only capital letters and numbers.
+
+  .fieldRow
+    .fieldGroup.row
+      .groupLabel.third
+        label.label(for='customField_CTandRPL').required Are you applying for credit transfer or RPL for any part of this qualification?
+      .groupFields.two-third
+        .fieldInput
+          if ctandrpl
+            each item, index in ctandrpl
+              label.label.radio
+                input.radio(type='radio', name='customField_CTandRPL', value=item.value,required)
+                |  #{item.label}
+        .fieldInput
+          label.sublabel(style='color: #656565;')
+            | Do you have previous experience? Linx Institute offer a range of options for students who have significant and verified experience, including: formal study in Australia, formal study in another country, on the job training, unaccredited courses and workshops, experience in the industry, completing the skills on a voluntary capacity or life experience.
+
+  .fieldRow
+    .fieldGroup.row
+      .groupLabel.third
+        label.label(for='customField_paymentmethod').required Payment Method
+      .groupFields.two-third
+        .fieldInput
+          if paymentmethod
+            each item, index in paymentmethod
+              label.label.radio
+                input.radio(type='radio', name='customField_paymentmethod', value=item.value,required)
+                |  #{item.label}

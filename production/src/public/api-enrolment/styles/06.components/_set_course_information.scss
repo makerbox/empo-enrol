@@ -1,0 +1,32 @@
+.course-columns {
+  columns: 3;
+  column-gap: 1.25em;
+  @include media($small) {
+    columns: 2;
+  }
+  @include media($smaller) {
+    columns: 1;
+  }
+}
+
+.course-item {
+  break-inside: avoid;
+  margin-bottom: $small-spacing;
+  line-height: 1.5;
+  li {
+    //margin-bottom: $small-spacing / 2;
+  }
+  a {
+    display: block;
+    // background-image: url(/assets/img/arrow-secondary.svg);
+    // background-size: 20px 12px;
+    // background-position: calc(100% - 20px) 50%;
+    // background-repeat: no-repeat;
+    //color: currentColor;
+    // transition: background 0.15s $transition-timing;
+    // padding-right: 50px;
+    // &:hover {
+    //   background-position: calc(100% - 10px) 50%;
+    // }
+  }
+}

@@ -1,0 +1,37 @@
+$sidebar-quote-right-push: 58px;
+$sidebar-quote-right-threshold: $full-px + $sidebar-quote-right-push;
+
+.sidebar-quote {
+  margin: inherit;
+  position: relative;
+}
+
+.sidebar-quote-content {
+  font-size: 130%;
+  margin-bottom: 14px;
+  .icon.quote {
+    font-size: 260%;
+    display: block;
+    color: currentColor;
+    overflow: visible;
+    margin-bottom: 14px;
+  }
+  &:after {
+    content: '"';
+  }
+}
+
+@include media(min-width $sidebar-quote-right-threshold) {
+  .content-sidebar--sidebar .sidebar-quote-content {
+    width: calc(100% + #{$sidebar-quote-right-push});
+  }
+}
+
+
+$sidebar-margin-bottom: $gutter;
+
+.set-sidebar--item {
+  &:not(:first-child) {
+    margin-top: $sidebar-margin-bottom;
+  }
+}

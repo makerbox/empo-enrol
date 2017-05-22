@@ -1,0 +1,25 @@
+fieldset(name="Contact Details")
+  legend.gamma.font-header Contact Details
+  .fieldRow
+    .fieldGroup.row
+      .groupLabel.third
+        label.label.required(for='phone') Phone
+      .groupFields.two-third
+        .fieldInput.third
+          label.label(for='phone') Phone
+          input.input#phone(type='tel', name='phone', size='13', maxlength='20',required, autocomplete='off')
+        .fieldInput.third
+          label.label(for='mobilephone') Mobile
+          input.input#mobilephone(type='tel', name='mobilephone', size='13', maxlength='20',required, autocomplete='mobile tel')
+        .fieldInput.third
+          label.label(for='workphone') Work
+          input.input#workphone(type='tel', name='workphone', size='13', maxlength='20',required, autocomplete='off')
+        #phonewarning
+
+  .fieldRow
+    .fieldGroup.row
+      .groupLabel.third
+        label.label(for='emailAddress').required Email
+      .groupFields.two-third
+        .fieldInput
+          input.input#emailAddress(type='email', name='emailAddress',required, autocomplete='email')

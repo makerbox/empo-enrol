@@ -1,0 +1,118 @@
+.input-group {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+  input,
+  textarea,
+  option {
+    display: block;
+    width: 100%;
+    padding: 15px 8px;
+    margin-bottom: 0;
+    //color: white;
+  }
+  label {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    padding-left: 8px;
+    margin: 0;
+    color: currentColor;
+    pointer-events: none;
+    transition: all .5s $transition-timing;
+    transform: translateY(-50%);
+  }
+  .input:focus + label,
+  .input.has-value + label,
+  .textarea:focus + label,
+  .textarea.has-value + label {
+    top: 0%;
+    margin-top: -12px;
+    font-size: 14px;
+    padding-left: 0px;
+    //color: $colour-white;
+    //color: currentColor;
+  }
+  .input:-webkit-autofill + label,
+  .textarea:-webkit-autofill + label {
+    top: 0%;
+    margin-top: -12px;
+    font-size: 14px;
+    color: $colour-white;
+    width: 100%;
+    &:after {
+      position: absolute;
+      right: 0;
+      background: $colour-blue;
+      padding: 2px 6px;
+      margin-top: -4px;
+      //color: $colour-white;
+      border-radius: $form-border-radius;
+      content: 'autofilled';
+      margin-right: 0px;
+    }
+  }
+}
+
+.input-minimal {
+  margin-top: 20px;
+  color: $colour-text;
+  input,
+  textarea,
+  select {
+    color: currentColor;
+    border-radius: 0;
+    //background: transparent;
+    //border: 0;
+    border: $form-border-width solid $colour-white;
+    &:-webkit-autofill {
+      -webkit-box-shadow:0 0 0 50px #FFF inset;
+      -webkit-text-fill-color: $colour-text;
+      border-color: white;
+    }
+  }
+  &.has-error {
+    color: $colour-error;
+  }
+  .messages {
+    display: block;
+    width: 100%;
+    position: absolute;
+    top: 100%;
+    //background-color: lighten($colour-form-border-error, 20%);
+    color: white;
+    p {
+      padding: 2px 6px;
+      text-transform: uppercase;
+      font-size: 80%;
+    }
+    p:last-of-type {
+      margin: 0;
+    }
+  }
+}
+
+
+.has-error {
+  animation: error-shake 400ms 1;
+}
+@keyframes error-shake {
+  0% {
+    transform: translateX(0);
+  }
+  12.5% {
+    transform: translateX(-6px) rotateY(-5deg);
+  }
+  37.5% {
+    transform: translateX(5px) rotateY(4deg);
+  }
+  62.5% {
+    transform: translateX(-3px) rotateY(-2deg);
+  }
+  87.5% {
+    transform: translateX(2px) rotateY(1deg);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}

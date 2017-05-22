@@ -1,0 +1,13 @@
+#!/bin/bash
+while read oldrev newrev ref
+do
+    if [[ $ref =~ .*/master$ ]];
+    then
+        echo "Master ref received.  Deploying master branch to production..."
+        git --work-tree=/var/www/empo-enrol/production --git-dir=/var/www/empo-enrol/repo.git checkout -f
+        cd /var/www/empo-enrol/production && npm install
+        sudo service empo-enrol restart
+    else
+        echo "Ref $ref successfully received.  Doing nothing: only the master branch may be deployed on this server."
+    fi
+done

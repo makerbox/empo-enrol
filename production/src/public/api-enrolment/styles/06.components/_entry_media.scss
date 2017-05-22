@@ -1,0 +1,143 @@
+// ----------------------------------------------------------------------------
+// Entry Media
+
+.entry-media--title {
+  margin: 0;
+}
+
+.media--meta {
+  color: $colour-grey;
+}
+
+.entry-tags a:not(:last-child) {
+  // &:after {
+  //   vertical-align: baseline;
+  //   content: ' |';
+  // }
+}
+
+.entry-tags {
+  display: block;
+  //text-transform: uppercase;
+}
+
+// ----------------------------------------------------------------------------
+// Entry Media Grid
+
+.entry-media-grid {
+  display: block;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-flow: row wrap;
+  @include media($small) {
+    .entry-media-grid--item {
+      flex: 0 1 50%;
+    }
+  }
+  @include media($smaller) {
+    .entry-media-grid--item {
+      flex: 0 1 100%;
+    }
+  }
+}
+
+$emg--post-caption-padding: 14px;
+
+.entry-media-grid--item {
+  flex: 33.3333% 0 1;
+  margin-bottom: .75em;
+  &:hover {
+    box-shadow: 2px 2px 1px 0px transparentize($colour-secondary, 0.25);
+    background-color: $colour-tertiary;
+    .entry-media-grid--post,
+    .emg--post-title,
+    .emg--post-meta,
+    .emg--post-teaser {
+    color: white;
+    }
+    .emg--post-button .btn {
+      background: 0 0;
+      border-color: #FFF!important;
+      color: #FFF!important;
+      box-shadow: 0 7px 9px -7px #fff!important;
+      &:after {
+        background-image: url(/assets/img/arrow-white.svg);
+      };
+    }
+  }
+}
+
+.emg--post-preview {
+  display: block;
+
+  img {
+    max-width: 100%;
+    height: auto;
+    width: 100%;
+  }
+
+  .no-img {
+    width: 360px;
+    height: auto;
+    background-color: #fafafa;
+  }
+}
+
+.entry-media-grid--post {
+  margin: 0;
+  margin-bottom: .75em;
+  width: 100%;
+}
+
+.emg--post-caption {
+  display: block;
+  padding-top: $small-spacing / 4;
+  font-style: normal;
+  text-align: left!important;
+  padding: $emg--post-caption-padding;
+}
+
+.emg--post-button .btn {
+  transition: none;
+}
+
+.emg--post-meta,
+.emg--post-teaser {
+  font-size: 16px;
+  color: grey;
+}
+
+.media--meta .media--meta-item {
+  display: inline;
+}
+
+.emg--post-title {
+  display: block;
+  color: $colour-black;
+  min-height: 85px;
+  margin-top: 6px;
+  a {
+    color: currentColor;
+    transition: none;
+  }
+  @include media($smaller) {
+    min-height: 0;
+  }
+}
+
+
+// ----------------------------------------------------------------------------
+// Simple
+
+.content .entry-media-simple {
+  margin: 0;
+  padding: 0;
+  margin-top: 30px;
+  font-size: 120%;
+  list-style-position: inside;
+  color: $colour-link;
+  a {
+    color: currentColor;
+  }
+}

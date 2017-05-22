@@ -1,0 +1,17 @@
+.wrapper a {
+  //color: currentColor;
+}
+
+.panel--content p:last-of-type {
+  margin-bottom: 0;
+}
+
+.panel--content {
+  ul {
+    list-style: disc;
+    margin-left: 1.5em;
+  }
+  li {
+    margin-bottom: .75em;
+  }
+}

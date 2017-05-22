@@ -1,0 +1,110 @@
+html,
+body {
+  //height: 100%;
+}
+
+$background-stop-position: 66.5%;
+$background-stop-position-two: 70%;
+
+
+body {
+  min-width: 320px;
+  @include legibility();
+}
+
+.svg-defs {
+  display: none;
+}
+
+html, body {
+  height: 100%;
+}
+
+html:before {
+  //content: '';
+    background: $colour-background-two;
+    // background:
+    //   linear-gradient(
+    //     110deg,
+    //     $colour-background-two,
+    //     $colour-background-two $background-stop-position,
+    //     $colour-background $background-stop-position,
+    //     $colour-background
+    //   );
+    background-position: 0px 0px;
+  	background-repeat: no-repeat;
+    display: inline-block;
+    height: 100%;
+    left: 0;
+    margin: 0 auto;
+    max-width: 940px;
+    //opacity: .4;
+    position: fixed;
+    right: 0;
+    width: 100%;
+    z-index: -1;
+    pointer-events: none;
+    @include media($full) {
+      background:
+        linear-gradient(
+          110deg,
+          $colour-background-two,
+          $colour-background-two 700px,
+          $colour-background 700px,
+          $colour-background
+        );
+    }
+}
+//
+// main, .page-header {
+//   @include media($full-up) {
+//     background:
+//       linear-gradient(
+//         90deg,
+//         transparent,
+//         transparent 87.5%,
+//         $colour-background 87.5%,
+//         $colour-background
+//       );
+//   }
+//   @include media(min-width 1260px) {
+//     background:
+//       linear-gradient(
+//         90deg,
+//         transparent,
+//         transparent 80%,
+//         $colour-background 80%,
+//         $colour-background
+//       );
+//   }
+//   @include media(min-width 1462px) {
+//     background:
+//       linear-gradient(
+//         90deg,
+//         transparent,
+//         transparent 75%,
+//         $colour-background 75%,
+//         $colour-background
+//       );
+//   }
+//   @include media(min-width 1860px) {
+//     background:
+//       linear-gradient(
+//         90deg,
+//         transparent,
+//         transparent 72%,
+//         $colour-background 72%,
+//         $colour-background
+//       );
+//   }
+//   @include media(min-width 2000px) {
+//     background:
+//       linear-gradient(
+//         90deg,
+//         transparent,
+//         transparent 70%,
+//         $colour-background 70%,
+//         $colour-background
+//       );
+//   }
+// }

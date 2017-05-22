@@ -1,0 +1,137 @@
+$header-nav-item-padding: 18px;
+$header-margin-top: 38px;
+$header-margin-bottom: 38px;
+$header-nav-margin: 20px;
+
+.page-header {
+  .container {
+    position: relative;
+  }
+    //   position: fixed;
+    // left: 0;
+    // right: 0;
+    // z-index: 1000;
+    // top: 0;
+}
+
+.header-logo {
+  margin-top: $header-margin-top - 20px;
+  margin-bottom: $header-margin-bottom - 20px;
+}
+
+.homepage-header {
+  margin: 0;
+}
+
+.header-logo {
+  float: left;
+  display: block;
+  position: relative;
+  color: transparent;
+  @include media($smaller) {
+    float: none;
+    margin-bottom: 0;
+    //margin-top: 20px;
+    text-align: left;
+  }
+}
+
+.header-nav {
+  float: right;
+  position: static;
+  display: block;
+  position: relative;
+  color: transparent;
+
+  padding: 0;
+  list-style: none;
+
+  color: black!important;
+}
+
+@include media($smaller) {
+  .header-logo {
+    img {
+      width: 180px;
+    }
+  }
+}
+
+.header-nav--item {
+  float: left;
+  margin: 0;
+  padding: 0;
+  line-height: 34px;
+  &:not(:last-of-type) {
+    margin-right: $header-nav-margin;
+  }
+  a {
+    color: currentColor;
+    display: block;
+    padding: $header-margin-top 0 $header-margin-bottom 0;
+  }
+}
+
+
+ header.page-header {
+   background-image: linear-gradient(90deg, transparent, transparent 50%, rgb(248, 135, 0) 50%, rgb(248, 135, 0));
+   .container {
+     background: $colour-white;
+     padding-right: 0;
+   }
+ }
+
+.header-nav--menu-button {
+  padding: $header-margin-top 0 $header-margin-bottom 140px;
+  //padding-left: 100px;
+  background: linear-gradient(110deg, transparent, transparent 25%, rgb(248, 135, 0) 25%, rgb(248, 135, 0));
+  @include media($smaller) {
+    margin-left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+}
+
+@include media($small) {
+  .header-menu {
+    .header-nav--menu-button {
+      // margin-left: 0;
+      // //position: absolute;
+      // right: 0;
+      // top: 0;
+      padding-left: $header-margin-top + 10px;
+      padding-right: $header-margin-top + 10px;
+      .menu-button--open {
+        text-indent: -9999px;
+      }
+    }
+  }
+}
+
+@include media($smaller) {
+  .header-logo {
+    margin: 0;
+    padding: 20px 0;
+  }
+  .header-menu {
+    margin: 0 auto;
+    position: initial;
+    float: none;
+    li a {
+      display: block;
+    }
+    .header-nav--menu-button {
+      margin-left: 0;
+      position: absolute;
+      right: 0;
+      top: 0;
+      .menu-button--open {
+        text-indent: -9999px;
+      }
+    }
+  }
+  .header-nav--phone-number {
+    display: none;
+  }
+}

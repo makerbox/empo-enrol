@@ -1,0 +1,18 @@
+// Background colours
+
+$background-colours: (
+  'primary': $colour-primary,
+  'secondary': $colour-secondary,
+  'tertiary': $colour-tertiary,
+  'quaternary': $colour-quaternary,
+  'success': $colour-success,
+  'info': $colour-info,
+  'warning': $colour-warning,
+  'danger': $colour-danger,
+);
+
+@each $background-colour, $colour in $background-colours {
+  .bg-#{$background-colour} {
+    background-color: $colour
+  }
+}

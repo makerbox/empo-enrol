@@ -1,0 +1,138 @@
+// .paged.disabled {
+//   .paged--tabs {
+//     display: none;
+//   }
+//   .paged--content-pane {
+//     display: block;
+//     position: relative;
+//     top: auto;
+//     left: auto;
+//   }
+// }
+
+.accordion {
+  dt {
+
+  }
+  dd {
+  }
+}
+
+.accordion--title {
+  &.inactive + .accordion--content {
+    height: 0!important;
+  }
+}
+
+.accordion--content {
+  transition: height 0.25s $transition-timing;
+  overflow: hidden;
+  //height: 0;
+}
+
+
+// ----------------------------------------------------------------------------
+// HTML5 <summary> Version
+$course-content-header-colour: $colour-secondary;
+$course-content-header-text: $colour-white;
+$course-content-header-padding: 20px $small-spacing;
+
+$course-content-colour: $colour-white;
+$course-content-text: $colour-black;
+$course-content-padding: $small-spacing;
+
+
+// →
+
+.course-content {
+  border: 2px solid $course-content-header-colour;
+  summary::-webkit-details-marker {
+    display: none
+  }
+  summary:after {
+    border-radius: 5px;
+    content: "\2192";
+    color: #fff;
+    float: left;
+    // background-image: url('/assets/img/icons/arrow.svg');
+    // background-repeat: no-repeat;
+    // background-size: 20px 12px;
+    // background-position: 50% 50%;
+    font-family: sans-serif;
+    font-size: 1.5em;
+    font-weight: bold;
+    margin: -5px 10px 0 0;
+    padding: 0;
+    text-align: center;
+    width: 20px;
+  }
+  &[open] summary:after {
+    transform: rotate(90deg);
+  }
+  summary:after {
+    .no-details & {
+      transform: rotate(90deg);
+    }
+  }
+  &:not(:last-of-type) summary {
+    border-bottom: 1px solid $course-content-header-text;
+  }
+}
+
+.course-content--title {
+  background: $course-content-header-colour;
+  color: $course-content-header-text;
+  padding: $course-content-header-padding;
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 80%;
+
+}
+
+
+.course-content--body {
+  background: $course-content-colour;
+  color: $course-content-text;
+  padding: $course-content-padding;
+}
+
+.course-content--list {
+  dt {
+    font-weight: bold;
+  }
+}
+
+.course-content--list-single,
+.course-content--list {
+  margin: 1em 0 20px;
+}
+
+.course-content--listtitle {
+  display: none;
+}
+
+// Align the list on biggish screens only.
+@include media($small-up) {
+  .course-content--list {
+    @include clearfix();
+    dt {
+      font-weight: normal;
+    }
+    dt,
+    dd {
+      float: left;
+      clear: left;
+      margin-top: 20px;
+    }
+    dd {
+      float: right;
+      clear: right;
+    }
+  }
+  dt.course-content--listtitle,
+  dd.course-content--listtitle {
+    display: block;
+    font-weight: bold;
+    margin-top: 0;
+  }
+}

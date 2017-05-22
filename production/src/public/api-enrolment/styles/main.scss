@@ -1,0 +1,183 @@
+// We use Bourbon and Bourbon Neat
+// Each section has it's own manifest file. Defining their children.
+// In rare instances, a file might be imported outside of a manifest, that should be documented.
+
+// The SCSS Gulp has a scss linter, you should use that as a guide to following the proper style.
+// `gulp scss-lint`
+
+@import './01.settings/_manifest';
+$visual-grid: false;
+@import '../../../../node_modules/bourbon/app/assets/stylesheets/bourbon';
+@import './01.settings/grid';
+@import '../../../../node_modules/bourbon-neat/app/assets/stylesheets/neat';
+// @import 'neat';
+
+@import './02.tools/_manifest';
+@import './03.generic/_manifest';
+@import './04.base/_manifest';
+@import './05.objects/_manifest';
+@import './06.components/_manifest';
+@import './07.trumps/_manifest';
+
+* {
+  box-sizing: border-box;
+}
+
+.linx_college {
+  .header-logo {
+    float: left;
+  }
+  // margin-bottom: 0px;
+}
+.linx_subheader {
+  background-image: linear-gradient(to right, #D91B5B 0%, #262267 100%);
+  height: 42px;
+  color: #FFF;
+}
+.linx_subheader .sub_left {
+  float: left;
+  padding-left: 18px;
+}
+.linx_subheader .sub_right {
+  float: right;
+  @include media($smaller) {
+    padding-left: 18px;
+    float: left;
+  }
+}
+.sub_head-text {
+  padding: 10px 0;
+  margin: 0;
+  vertical-align: middle;
+}
+.sub_head-text a {
+  color: white;
+}
+.sub_right-call {
+  margin-right: 18px;
+}
+.sub_right-enquire {
+  margin-right: 24px;
+}
+.sub_right-text {
+  float: left;
+}
+.sub_right-icon {
+  background: #d91b5b;
+  height: 42px;
+  width: 60px;
+  text-align: center;
+  float: right;
+}
+.sub_right-icon img {
+  vertical-align: middle;
+  margin-top: 7px;
+}
+.header-nav {
+  margin-top: 20px;
+  line-height: 34px;
+}
+.header-nav a {
+  color: #404041;
+}
+.linx_header {
+  padding: 0 14px;
+  border-bottom: 1px solid #ccc;
+}
+
+.colour_primary {
+  color: #d7225d;
+}
+
+.banner_header {
+  padding-bottom: 7px;
+}
+.banner_header h1 {
+  line-height: 1.5;
+}
+.splash_header {
+  margin-bottom: 0;
+}
+span.partner {
+  position: relative;
+  @include media($small-up) {
+    left: -50px;
+    .padded-multiline .su {
+      padding-left: 44px;
+    }
+  }
+}
+.padded-multiline {
+  line-height: 1.3;
+  padding: 2px 0;
+  border-left: 20px solid #272466;
+  display: block;
+}
+.padded-multiline .su {
+  background-color: #272466;
+  padding: 4px 0 4px;
+  color: #fff;
+  display: inline;
+  margin: 0;
+}
+.padded-multiline .su .subsub {
+  position: relative;
+  left: -10px;
+}
+
+@import 'rome';
+
+label.radio {
+  display: inline-block;
+  margin-right: 20px;
+}
+input.input, select.input {
+  border-width: 1px;
+  line-height: normal;
+}
+input:last-child {
+
+}
+.hassublabel {
+  margin-bottom: 0;
+}
+.sublabel {
+  margin-bottom: .75em;
+}
+.groupLabel {
+  text-align: right;
+  font-weight: bold;
+}
+fieldset {
+  padding: 1em;
+  margin-bottom: 1em;
+  background: #efefef;
+}
+legend.font-header {
+  float: left;
+  margin-top: 0;
+}
+.fieldRow {
+  margin-bottom: .75em;
+}
+#saved {
+  position: fixed;
+  right: 15px;
+  bottom: 2px;
+  transition: all 1s linear;
+  color: transparent;
+}
+#saved.saved {
+  color: #A9A9A9;
+}
+#saved.not-ready {
+  display: none
+}
+label.required::after {
+  color: red;
+}
+@media screen and (max-width: 53.125em) {
+  .groupLabel {
+    text-align: left;
+  }
+}

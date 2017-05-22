@@ -1,0 +1,68 @@
+// ----------------------------------------------------------------------------
+// Enrolment
+
+label.radio {
+  display: inline-block;
+  margin-right: 20px;
+}
+input.input, select.input {
+  border-width: 1px;
+  line-height: normal;
+}
+input:last-child {
+
+}
+.hassublabel {
+  margin-bottom: 0;
+}
+.sublabel {
+  margin-bottom: .75em;
+}
+.groupLabel {
+  text-align: right;
+  font-weight: bold;
+}
+fieldset {
+  padding: 1em;
+  margin-bottom: 1em;
+  background: #efefef;
+}
+legend.font-header {
+  float: left;
+  margin-top: 0;
+}
+.fieldRow {
+  margin-bottom: .75em;
+}
+#saved {
+  position: fixed;
+  right: 15px;
+  bottom: 2px;
+  transition: all 1s linear;
+  color: transparent;
+}
+#saved.saved {
+  color: #A9A9A9;
+}
+#saved.not-ready {
+  display: none
+}
+label.required::after {
+  color: red;
+}
+@media screen and (max-width: 53.125em) {
+  .groupLabel {
+    text-align: left;
+  }
+}
+.content .parsley-errors-list {
+  margin-left: 0;
+  padding-left: 0;
+  li {
+    list-style: none;
+    color: $colour-error;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+}

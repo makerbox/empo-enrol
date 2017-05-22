@@ -1,0 +1,131 @@
+$linkgrid-location-w: 480px;
+$linkgrid-location-h: 280px;
+$linkgrid-location-transition-timing: .15s;
+$linkgrid-location-transition-timing-secondary: .30s;
+$linkgrid-location-background: $colour-primary;
+$linkgrid-location-padding: $small-spacing;
+
+.linkgrid-location {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+}
+
+.linkgrid-location--outer {
+  flex: 50% 0 1;
+  @include media($full) {
+    flex: 100%;
+  }
+}
+
+.linkgrid-location--item {
+  position: relative;
+  width: $linkgrid-location-w;
+  height: $linkgrid-location-h;
+  min-height: $linkgrid-location-h;
+  margin: 0 auto;
+  overflow: hidden;
+  background: $colour-primary-lighter;
+  box-shadow: 4px 4px 0px 0px $colour-secondary;
+  margin-bottom: 10px;
+  &:hover,
+  &:active,
+  &:focus {
+    .linkgrid-location--image {
+      transform: translate(-50%, -50%) scale(1.01);
+    }
+    .linkgrid-location--content {
+      background-color: rgba(255,255,255,0);
+    }
+    .linkgrid-location--btn:after {
+      transform: translateX(6px);
+    }
+  }
+  a {
+    color: currentColor;
+    display: block;
+    clear: both;
+  }
+}
+
+.linkgrid-location--detail {
+  text-align: center;
+}
+
+.linkgrid-location--large-text {
+  margin-right: $small-spacing;
+  @include font-size(2.8);
+  @include media($small) {
+    @include font-size(2.4);
+  }
+  @include media($smaller) {
+    @include font-size(2.8);
+  }
+}
+
+.linkgrid-location--image {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: 1;
+  max-width: none;
+  transition: transform $linkgrid-location-transition-timing;
+  transform: translate(-50%, -50%) scale(1.10);
+  will-change: transform;
+}
+
+.linkgrid-location--title {
+  background: rgba(255,255,255,.7);
+  margin-bottom: 12px;
+  display: block;
+  padding: 6px 12px;
+}
+
+.linkgrid-location--content {
+  padding: $linkgrid-location-padding;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 2;
+  transition: background $linkgrid-location-transition-timing;
+  .anchor-bottom {
+    width: 90%;
+  }
+}
+
+.linkgrid-location--outer {
+
+}
+
+.linkgrid-location--btn {
+  bottom: $linkgrid-location-padding;
+  //left: $linkgrid-location-padding;
+  text-transform: uppercase;
+  font-weight: bold;
+  text-align: left;
+  padding-left: $small-spacing;
+  padding-right: $small-spacing;
+  min-width: 220px;
+  transition: all $linkgrid-location-transition-timing $linkgrid-location-transition-timing-secondary;
+}
+
+
+@include media($small) {
+  .linkgrid-location {
+
+  }
+  .linkgrid-location--item {
+    flex: 50% 0 0;
+  }
+}
+
+@include media($smaller) {
+  .linkgrid-location {
+
+  }
+  .linkgrid-location--item {
+    flex: 100% 0 0;
+  }
+}

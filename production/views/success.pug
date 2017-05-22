@@ -1,0 +1,22 @@
+- empower = (host === 'empowercollege.edu.au' || false)
+doctype html
+html
+  head
+    include enrolment/partials/doc_head
+  body
+    if empower
+      include enrolment/partials/header
+    else
+      include enrolment/partials/header_linx
+    main.main
+      if !empower
+        .wrapper.content.banner_header
+          .container
+            .splash
+              h1.colour_primary
+                | Congratulations on completing your application for enrolment
+              p.zeta One of our friendly course advisors will be in touch shortly to discuss the next steps and collect the relevant documentation to assist with finalising your enrolment.
+              p.zeta
+                | In the mean time, check out
+                a(href='http://linx.edu.au/newsroom/')  the latest from the newsroom
+                | .

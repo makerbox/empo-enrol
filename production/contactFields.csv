@@ -1,0 +1,75 @@
+Header,Type,Required,Description
+givenName,string,true,Given (first) name
+surname,string,true,Surname (last name)
+title,string,true,Tile/salutation
+emailAddress,string,true,Email address. Must be a valid email address
+dob,date,false,Date of Birth in the format YYYY-MM-DD
+sex,character,false,Must be only a single letter. Valid values are M, F or X (for Indeterminate/Intersex/Unspecified)
+middleName,string,false,Middle name
+phone,string,false,Home phone number
+mobilephone,string,false,Mobile phone number
+workphone,string,false,Work phone number
+fax,string,false,Fax number
+organisation,string,false,Organisation name
+position,string,false,Position within the organisation
+section,string,false,Section within the organisation
+division,string,false,Division within the organisation
+SourceCodeID,numeric,false,The client-specific sourceID from the list set up in aXcelerate and returned from the contact/sources resource.
+Password,string,false,An optional password that can be stored against the contact/student. This password could then be used to login to the student portal. No minimum strength checking is performed by the service. It is up to the API implementors to enforce their own password policies.
+USI,string,false,Unique Student Identifier (USI). A 10-digit code. If passed, this code must conform to the minimum validation: It must be 10 digits in length and consist of only capital letters and numbers, excluding I, 1, 0 and O.
+LUI,string,false,The Queensland Studies Authority Learner Unique Identifier (LUI). A 10-digit, numeric code.
+EmergencyContact,string,false,Name of an emergency contact
+EmergencyContactRelation,string,false,The relationship of the emergency contact (eg sister)
+EmergencyContactPhone,string,false,The phone number of the emergency contact
+buildingName,string,false,AVETMISS 7.0 fields - will take these fields over address1 and address2 if passed. Note, you cannot search contacts by these discrete fields.
+unitNo,string,false,AVETMISS 7.0 fields
+streetNo,string,false,AVETMISS 7.0 fields
+streetName,string,false,AVETMISS 7.0 fields
+POBox,string,false,AVETMISS 7.0 fields
+address1,string,false,First line of POSTAL address - address fields will be used only if AVETMISS 7.0 fields not passed. The return structure will also include these fields.
+address2,string,false,Second line of postal address
+city,string,false,Postal suburb, locality or town
+state,string,false,Postal state / Territory. NOTE: This field is tailored for Australia and accepts only the following values: NSW, VIC, QLD, SA, WA, TAS, NT, ACT or OTH (which means 'Other Australian Territory') or OVS (which means 'Overseas')
+postcode,string,false,Postal postcode
+countryID,numeric,false,Postal Country - a 4-digit SACC code. This is only used if the full AVETMISS 7.0 address details are passed. Otherwise this field is ignored. Use Country instead.
+country,string,false,Postal Country
+sbuildingName,string,false,AVETMISS 7.0 fields - will take these fields over address1 and address2 if passed. Note, you cannot search contacts by these discrete fields.
+sunitNo,string,false,AVETMISS 7.0 fields
+sstreetNo,string,false,AVETMISS 7.0 fields
+sstreetName,string,false,AVETMISS 7.0 fields
+sPOBox,string,false,AVETMISS 7.0 fields
+saddress1,string,false,First line of STREET / residential address - address fields will be deprecated with the coming of AVETMISS 7.0 which will break the address into further fields (eg Flat/unit number, Street Name)
+saddress2,string,false,Second line of street / residential address - to be deprecated in the future
+scity,string,false,Residential suburb, locality or town
+sstate,string,false,Residential state / Territory. NOTE: This field is tailored for Australia and accepts only the following values: NSW, VIC, QLD, SA, WA, TAS, NT, ACT or OTH (which means 'Other Australian Territory') or OVS (which means 'Overseas')
+spostcode,string,false,Residential postcode
+scountryID,numeric,false,Residential Country - a 4-digit SACC code. This is only used if the full AVETMISS 7.0 address details are passed. Otherwise this field is ignored. Use SCountry instead.
+scountry,string,false,Residential Country
+CountryofBirthID,numeric,false,Country of Birth as a valid 4-digit SACC code. For a list of codes, please refer to NCVER website www.ncver.edu.au
+CityofBirth,string,false,City of Birth. This data is used if later creating a USI for this contact.
+CountryofCitizenID,numeric,false,Country of citizenship as a valid 4-digit SACC code. For a list of codes, please refer to NCVER website www.ncver.edu.au
+CitizenStatusID,numeric,false,Citizenship status. The valid values are numbers 1-11. For a list of the meanings of these numbers, please contact aXcelerate
+LabourForceID,numeric,false,AVETMISS Labour force status identifier. For valid values see the AVETMISS documentation
+MainLanguageID,numeric,false,AVETMISS Main language other than English spoken at home identifier as a valid 4-digit SACC code. For a list of codes, please refer to NCVER website www.ncver.edu.au
+EnglishProficiencyID,numeric,false,AVETMISS Proficiency in spoken English. For valid values see the AVETMISS documentation
+EnglishAssistanceFlag,boolean,false,A T/F flag to indicate whether English assistance is required
+HighestSchoolLevelID,numeric,false,AVETMISS highest school level completed identifier. For valid values see the AVETMISS documentation
+HighestSchoolLevelYear,numeric,false,The year the highest school level was completed. Must be a valid year no later than the current year
+AtSchoolFlag,boolean,false,A T/F AVETMISS flag to indicate whether the contact is currently at secondary school
+AtSchoolName,string,false,The name of the contact's current secondary school
+PriorEducationStatus,boolean,false,A T/F AVETMISS flag to indicate whether a contact has successfully completed some post-secondary education
+PriorEducationIDs,string,false,A comma delimited list of AVETMISS prior educational achievement identifiers to indicate prior higher education. For valid values see the AVETMISS documentation. The Victorian AVETMISS field Prior Educational Achievement Recognition Identifier may be appended (e.g. 420A)
+DisabilityFlag,boolean,false,A T/F AVETMISS flag to indicate whether the contact considers themselves to have a disability, impairment or long-term condition
+DisabilityTypeIDs,list,false,A comma delimited list of AVETMISS disability type identifiers. For valid values see the AVETMISS documentation
+IndigenousStatusID,numeric,false,AVETMISS indigenous status identifier to indicates a contact who self-identifies as being of Australian Aboriginal or Torres Strait Islander descent. For valid values see the AVETMISS documentation
+ANZSCOCode,string,false,Australian and New Zealand Standard Classification of Occupations (ANZSCO), ABS catalogue no.1220.0, 2009. The major group of this code is used for the Victorian AVETMISS field Client Occupation Identifier (left most digit)
+ANZSICCode,string,false,Australian and New Zealand Standard Industrial Classification (ANZSIC), ABS catalogue no.1292.0, 2006. The division of this code is used for the Victorian AVETMISS field Client Industry of Employment (see ABS catalogue)
+employerContactID,numeric,false,The ContactID of the Contact Record who is the Employer of this Contact.
+payerContactID,numeric,false,The ContactID of the Contact Record who is the Payer of this Contact.
+supervisorContactID,numeric,false,The ContactID of the Contact Record who is the Supervisor of this Contact.
+agentContactID,numeric,false,The ContactID of the Contact Record who is the Agent for this Contact.
+coachContactID,numeric,false,The ContactID of the Contact Record who is the Coach for this Contact.
+internationalContactID,numeric,false,The ContactID of the Contact Record who is the International Contact for this Contact (CRICOS).
+optionalID,string,false,An optional identifier to use for this Contact record.
+categoryIDs,list,false,A list of valid category IDs. (adds to Contact ONLY)
+customField_[variableName],string,false,Replace [variableName] with the actual customField variable name to set a customField value against the contact.

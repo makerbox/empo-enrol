@@ -1,0 +1,63 @@
+.debug {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  font-size: 8px;
+  text-transform: uppercase;
+}
+
+.styleguide .row {
+  clear: both;
+}
+
+.styleguide .panel {
+  margin-bottom: $small-spacing;
+}
+
+.styleguide .btn.btn-block {
+  //margin-bottom: 27px;
+  + pre {
+    margin-bottom: 27px;
+  }
+}
+
+.clip-area {
+  position: relative;
+  .embed-textarea {
+    width: calc(100% - 40px);
+    font-family: monospace;
+    color: green;
+    border-top: none;
+    border-right: none;
+    border-bottom: none;
+    padding: 10px 10px 10px 20px;
+    border-left: 2px solid green;
+  }
+  pre {
+    position: relative;
+    min-height: 30px;
+    clear: both;
+    .embed-textarea {
+      margin-bottom: 0;
+    }
+    .copy-btn {
+      @include align(absolute, vertical);
+      right: 4px;
+      display: none;
+      border: none;
+      background-color: white;
+      color: green;
+      padding: 0;
+      &:active, &:focus {
+        outline: none;
+        color: $colour-success;
+        background-color: white;
+      }
+    }
+    &:hover {
+      .copy-btn {
+        display: inline-block;
+      }
+    }
+  }
+}

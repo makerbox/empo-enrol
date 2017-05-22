@@ -1,0 +1,52 @@
+$panel-colour: #fff;
+$panel-colour-border: #000;
+$panel-border-width: 3px;
+$panel-padding-v: $small-spacing;
+$panel-padding-h: $panel-padding-v;
+
+.panel {
+  padding: $panel-padding-v $panel-padding-h;
+  border-color: $panel-colour-border;
+  h1,
+  h2,
+  h3,
+  h4,
+  h5 {
+    &:first-child {
+      margin-top: 0;
+    }
+  }
+
+}
+
+.panel--nopad {
+  padding: 0;
+}
+
+.panel--innerpad {
+  padding: $panel-padding-v $panel-padding-h;
+}
+
+.panel--img {
+  padding-top: 2px;
+}
+
+.panel--shadow {
+  @include card(2);
+}
+
+.panel--bottom {
+  border-bottom: $panel-border-width solid;
+}
+
+.panel--top {
+  border-top: $panel-border-width solid;
+}
+
+.panel--header {
+  padding-top: $panel-border-width * 3;
+}
+
+.panel-content .title:first-child {
+  margin-top: 0;
+}

@@ -1,0 +1,17 @@
+fieldset(name="Terms and Conditions")
+  legend.gamma.font-header.required Terms and Conditions
+  .fieldRows(style="clear: both;")
+    .fieldGroup.row
+      .groupFields
+        .fieldInput
+          p
+            | Please read and accept our terms and conditions prior to submitting this application for enrolment.
+            | (
+            a(href='/api-enrolment/toc',target="_blank",title="Open Terms and Conditions in new window") open terms in new window
+            | )
+        .fieldInput
+          iframe(src='/api-enrolment/toc',width="100%",style="border: 1px solid black;")
+        .fieldInput
+          label.label.radio
+            input.checkbox(type='checkbox', name='customField_TOC', value='Yes',required, data-parsley-error-message='You must accept the terms and conditions')
+            |  Yes, I accept the terms and conditions

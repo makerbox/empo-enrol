@@ -1,0 +1,128 @@
+$linkgrid-w: 480px;
+$linkgrid-h: 280px;
+$linkgrid-transition-timing: .15s;
+$linkgrid-transition-timing-secondary: .30s;
+$linkgrid-background: $colour-primary;
+$linkgrid-padding: $small-spacing;
+$linkgrid--item-reduced: 80px;
+
+.linkgrid {
+  display: flex;
+  flex-flow: row wrap;
+  z-index: 10;
+  position: relative;
+}
+
+.linkgrid--item {
+  position: relative;
+  width: $linkgrid-w;
+  height: $linkgrid-h;
+  min-height: $linkgrid-h;
+  margin: 0;
+  overflow: hidden;
+  background: $colour-primary-lighter;
+  flex: 33.3333% 0 1;
+  @include media($small-up) {
+    //@include card(1);
+    box-shadow: 4px 4px 0px 0px transparentize($colour-secondary, 0.25);
+  }
+  &:hover,
+  &:active,
+  &:focus {
+    .linkgrid--image {
+      transform: translate(-50%, -50%) scale(1.01);
+    }
+    .linkgrid--content {
+      background-color: rgba(255,255,255,0);
+    }
+    .linkgrid--btn:after {
+      transform: translateX(6px);
+    }
+  }
+  a {
+    color: currentColor;
+    display: block;
+    clear: both;
+  }
+}
+
+.linkgrid--large-text {
+  margin-right: $small-spacing;
+  @include font-size(2.8);
+  @include media($small) {
+    @include font-size(2.4);
+  }
+  @include media($smaller) {
+    @include font-size(2.8);
+  }
+}
+
+.linkgrid--image {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: 1;
+  max-width: none;
+  transition: transform $linkgrid-transition-timing;
+  transform: translate(-50%, -50%) scale(1.10);
+  will-change: transform;
+}
+
+.linkgrid--title {
+  font-weight: bold;
+}
+
+.linkgrid--content {
+  padding: $linkgrid-padding;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 2;
+  transition: background $linkgrid-transition-timing;
+  @include media($small-up) {
+    &:not(.last) {
+      background-color: rgba(255,255,255,.3);
+    }
+  }
+}
+
+.linkgrid--btn {
+  bottom: $linkgrid-padding;
+  //left: $linkgrid-padding;
+  text-transform: uppercase;
+  font-weight: bold;
+  text-align: left;
+  padding-left: $small-spacing;
+  padding-right: $small-spacing;
+  min-width: 220px;
+  transition: all $linkgrid-transition-timing $linkgrid-transition-timing-secondary;
+}
+
+
+@include media($small) {
+  .linkgrid {
+
+  }
+  .linkgrid--item {
+    flex: 50% 0 0;
+  }
+}
+
+@include media($smaller) {
+  .linkgrid {
+
+  }
+  .linkgrid--item {
+    flex: 100% 0 0;
+  }
+  .linkgrid--item.small-size {
+    img {
+      display: none;
+    }
+    height: $linkgrid--item-reduced;
+    min-height: $linkgrid--item-reduced;
+  }
+
+}

@@ -1,0 +1,104 @@
+$modal-padding: $small-spacing * 2;
+
+.modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  width: vw400;
+  height: auto;
+  padding: $modal-padding;
+  background: $colour-info;
+  color: white;
+  box-shadow: 0 0 0 1000em rgba(0,0,0,.5), bottom-shadow(3), top-shadow(3);
+  z-index: 100;
+  transition: all 0.25s $transition-timing;
+  opacity: 1;
+  z-index: 9999999999;
+  max-width: 440px;
+  @include media($smaller) {
+    max-width: 100%;
+    //max-height: 90%;
+    min-width: 90%;
+    margin-top: 40px;
+  }
+  .title {
+    margin-top: 0;
+  }
+  #modalContent {
+    overflow: hidden;
+  }
+  .input {
+    border-color: $colour-white;
+  }
+}
+
+.modal.visible {
+  display: block;
+}
+
+.modal.hidden {
+  opacity: 0;
+  transform: translate(-50%, -20%);
+}
+
+
+.disabled {
+  pointer-events: none;
+}
+
+body.prevent {
+  overflow: hidden;
+}
+
+.prevent {
+  pointer-events: none;
+}
+
+.prevent .modal {
+  pointer-events: auto;
+}
+
+$modal-close-button-colour: $colour-white;
+$modal-close-size: 36px;
+$modal-close-font-size: $modal-close-size / 2;
+
+.modal-button--close {
+  border: 0;
+  background: transparent;
+  padding: 0;
+  position: absolute;
+  bottom: 100%;
+  right: 0;
+  z-index: 1001;
+  width: $modal-close-size;
+  height: $modal-close-size - 6;
+  text-indent: -$modal-close-size * 2.5;
+  color: $modal-close-button-colour;
+  font-size: $modal-close-font-size;
+  margin-bottom: $modal-close-font-size / 2;
+  &::before,
+  &::after {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 2px;
+    height: 100%;
+    content: '';
+    background: $modal-close-button-colour;
+  }
+  &::before {
+    transform: rotate(45deg);
+  }
+  &::after {
+    transform: rotate(-45deg);
+  }
+}
+
+
+// Form Specific
+
+.modal form {
+  max-width: 300px;
+  margin: 0px auto;
+}

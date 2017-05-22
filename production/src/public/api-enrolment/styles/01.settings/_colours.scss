@@ -1,0 +1,105 @@
+// ----------------------------------------------------------------------------
+// #Colour-Default
+
+$colour-red: rgb(231, 76, 60) !default;
+$colour-orange: rgb(243, 156, 18) !default;
+$colour-yellow: rgb(241, 196, 15) !default;
+$colour-lime: rgb(74, 180, 113) !default;
+$colour-green-alt: rgb(161, 211, 110) !default;
+$colour-green: #31CD64!default;
+$colour-cyan: rgb(85, 193, 231) !default;
+$colour-blue: rgb(41, 128, 185) !default;
+$colour-indigo: rgb(113, 126, 205) !default;
+$colour-violet: rgb(155, 89, 182) !default;
+$colour-white: #fff;
+$colour-black: #000;
+$colour-grey: #808080;
+$transparent: transparent;
+
+// ----------------------------------------------------------------------------
+// #Brand Colours
+
+$colour-facebook: #39579a;
+$colour-pinterest: #bf0012;
+$colour-instagram: #3d719d;
+$colour-twitter: #50abf1;
+$colour-youtube: #cf1d13;
+$colour-linkedin: #0076b7;
+
+// ----------------------------------------------------------------------------
+// #Colour-Generic
+
+$colour-primary: #e72329!default;
+$colour-secondary: #00609c!default;
+$colour-tertiary: $colour-green!default;
+$colour-quaternary: $colour-indigo!default;
+
+
+$colour-primary: #f88700;
+$colour-secondary: #ef4051;
+$colour-tertiary: #00c5d8;
+$colour-quaternary: #FCB74D;
+
+$colour-five: #FAFAFA;
+$colour-background: $colour-white!default;
+$colour-background-secondary: darken($colour-white, 10%)!default;
+$colour-background-alt: #F4F4F4;
+//$colour-background-alt: #F4F4F4;
+//$colour-background: #252525;
+$colour-background: $colour-primary;
+$colour-background-two: #FFFFFF;
+$colour-background-secondary: darken($colour-background, 3%);
+$colour-background-tertiary: darken($colour-background-secondary, 3%);
+$colour-primary-darker: darken($colour-primary, 15%);
+$colour-secondary-darker: darken($colour-secondary, 15%);
+$colour-tertiary-darker: darken($colour-tertiary, 15%);
+$colour-quaternary-darker: darken($colour-indigo, 15%);
+$colour-primary-lighter: lighten($colour-primary, 15%);
+$colour-secondary-lighter: lighten($colour-secondary, 15%);
+$colour-tertiary-lighter: lighten($colour-tertiary, 15%);
+$colour-quaternary-lighter: lighten($colour-quaternary, 15%);
+
+
+// ----------------------------------------------------------------------------
+// #Colour-State
+$colour-disabled: greyscale($colour-primary);
+$colour-text: #333333;
+$colour-text-dark: darken($colour-text, 10%);
+$colour-link: $colour-secondary;
+$colour-link-hover: darken($colour-link, 5%);
+$colour-action: $colour-cyan;
+$colour-post: $colour-cyan;
+$colour-success: $colour-green;
+$colour-error: $colour-red;
+$colour-danger: $colour-error;
+$colour-info: $colour-blue;
+$colour-warning: $colour-orange;
+$colour-task: $colour-indigo;
+$colour-event: $colour-violet;
+
+// ----------------------------------------------------------------------------
+// #Colour-Alert
+
+$alert-colour-success: $colour-success;
+$alert-colour-warning: $colour-warning;
+$alert-colour-info: $colour-info;
+$alert-colour-danger: $colour-danger;
+
+// ----------------------------------------------------------------------------
+// #Colour-Button
+$button-base-colour: $colour-primary!default;
+
+// ----------------------------------------------------------------------------
+// #Colour-Form
+$colour-divider: lighten($colour-grey, 30%);
+$colour-border: $colour-white;
+$colour-form: $colour-text;
+$colour-form-border: lighten($colour-black, 10%);
+$colour-form-border-hover: $colour-blue;
+$colour-form-border-error: $colour-error;
+$colour-form-border-focus: $colour-blue;
+$colour-form-background: $colour-white;
+
+// Fallbacks
+$base-border-color: $colour-border;
+$form-border-colour: $colour-border; // Fallback

@@ -1,0 +1,55 @@
+- querypartner = _.filter(partner,{'query': query.partner})[0] || false
+- empower = (host === 'empowercollege.edu.au' || false)
+doctype html
+html
+  head
+    include enrolment/partials/doc_head
+  body
+    if empower
+      include enrolment/partials/header
+    else
+      include enrolment/partials/header_linx
+    main.main
+      if !empower
+        .wrapper.content.banner_header.colour_primary
+          .container
+            .splash
+              h1.splash_header
+                | Welcome,
+                br
+                if querypartner
+                  | You're applying to enrol with Linx Institute,
+                  br
+                  span.partner
+                    .padded-multiline
+                      span.su
+                        span.subsub through #{querypartner.value}
+                else
+                  | You're applying to enrol with Linx Institute
+      .wrapper.content
+        .container
+          h2 Application for enrolment
+          p
+            | Please complete the below form in full. The Asterisk (
+            span(style='color: red;') *
+            | ) next to a field, means that you must complete the requested information for that field.
+          #alert-container
+          form(method="POST",action="/api-enrolment",name="Linx Institute Enrolment Form")#enrolment-form
+            if query.id
+              input(type='hidden',name="id",value=query.id)
+            if querypartner
+              input(type='hidden',name="customField_partner",value=querypartner.value)
+            include enrolment/partials/01_personal
+            include enrolment/partials/02_contact
+            include enrolment/partials/03_address
+            include enrolment/partials/04_preferences
+            include enrolment/partials/05_vet_related_details
+            include enrolment/partials/06_emergency_contact_details
+            include enrolment/partials/07_terms_and_conditions
+            button(type='submit').btn.btn-linx Apply now
+            button(type='reset').btn-unstyled.right Reset
+          #saved.not-ready Saved
+          script(src='//cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-beta1/jquery.min.js')
+          script(src='//cdnjs.cloudflare.com/ajax/libs/parsley.js/2.3.11/parsley.min.js')
+          script(src='//cdnjs.cloudflare.com/ajax/libs/garlic.js/1.2.4/garlic.min.js')
+          script(src='/api-enrolment/index.js')

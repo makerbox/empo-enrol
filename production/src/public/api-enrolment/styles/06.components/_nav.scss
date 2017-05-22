@@ -1,0 +1,222 @@
+$menu-colour-link: $colour-white;
+$menu-colour-link-hover: $colour-secondary;
+$menu-button-colour: $colour-black;
+$menu-colour-background: $colour-black;
+$menu-open-margin: 24px;
+$menu-open-size: 40px;
+$menu-close-button-colour: $colour-white;
+$menu-close-margin: $menu-open-margin;
+$menu-close-size: $menu-open-size;
+$menu-open-font-size: $font-size-base +rem;
+$menu-close-font-size: $menu-open-font-size;
+$menu-margin-top: 40px;
+
+.main-content {
+  z-index: 2;
+  overflow-y: scroll;
+  transition: transform .3s;
+}
+
+.main-content-overlay {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1;
+  pointer-events: none;
+  background-color: transparent;
+  transition: $transition-duration background $transition-timing;
+}
+
+/* Menu Button */
+.menu-button {
+  border: 0;
+  background: transparent;
+  padding: 0;
+}
+
+$burger-step: 20%;
+
+$burger-step-1: $burger-step;
+
+.menu-button--open {
+  position: relative;
+  z-index: 1000;
+  width: $menu-open-size;
+  height: $menu-open-size - 6;
+  //margin: $menu-open-margin;
+  color: $menu-button-colour;
+  text-indent: -$menu-open-size * 3;
+  font-size: $menu-open-font-size;
+  &::before {
+    position: absolute;
+    top: .5em;
+    right: .5em;
+    bottom: .5em;
+    left: .5em;
+    content: '';
+    background: linear-gradient(
+      $menu-button-colour 20%, transparent 20%,
+      transparent 40%, $menu-button-colour 40%,
+      $menu-button-colour 60%, transparent 60%,
+      transparent 80%, $menu-button-colour 80%
+      );
+
+  }
+  &:hover {
+    opacity: .6;
+  }
+}
+
+/* Close Button */
+.menu-button--close-container {
+  padding: 0 0;
+  @include media($small) {
+    //display: none;
+  }
+}
+.menu-button--close {
+  position: relative;
+  float: right;
+  // top: 0;
+  // right: 0;
+  z-index: 1001;
+  width: $menu-close-size;
+  height: $menu-close-size - 6;
+  text-indent: -$menu-close-size * 4;
+  color: $menu-close-button-colour;
+  font-size: $menu-close-font-size;
+  &::before,
+  &::after {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 2px;
+    height: 100%;
+    content: '';
+    background: $menu-close-button-colour;
+  }
+  &::before {
+    transform: rotate(45deg);
+  }
+  &::after {
+    transform: rotate(-45deg);
+  }
+}
+
+
+/* Menu */
+.menu--inner {
+  width: 100%;
+  max-width: 300px;
+  height: 100%;
+  padding: $menu-margin-top 1em 2em;
+  overflow-y: scroll;
+  transform:  translateZ(0);
+}
+
+.menu {
+  position: fixed;
+  right: 0;
+  z-index: 1001;
+  //width: 42%;
+  height: 100%;
+  //font-size: 1.15em;
+  transition: transform .3s;
+  transform: translate3d(100%,0,0);
+  background: $menu-colour-background;
+  @include media($small) {
+    width: 300px;
+  }
+}
+
+
+/* Shown menu */
+.show-menu {
+  overflow: hidden;
+  .menu {
+    transform: translate3d(0%,0,0);
+  }
+  .main-content-overlay {
+    background-color: transparentize($colour-black, .5);
+    z-index: 999;
+  }
+  .main-content {
+    transition-delay: .1s;
+    transform: translate3d(0,0,0);
+  }
+}
+
+
+// ----------------------------------------------------------------------------
+// Nav List
+
+$nav-item-padding: 6px;
+$nav-item-divider-colour: $colour-white;
+$nav-list-margin-top: $nav-item-padding * 6;
+
+.nav-list {
+  margin: 0;
+  list-style: none;
+  padding: 0;
+  clear: both;
+  &:not(.nav-list--child) {
+    margin-top: $nav-list-margin-top;
+  }
+  @include media($small) {
+    &:first-of-type {
+      margin-top: 0;
+    }
+  }
+}
+
+.nav-item {
+  display: block;
+  padding: $nav-item-padding 0;
+  color: $menu-colour-link;
+  &:hover,
+  &:focus,
+  &.nav-item--current {
+    color: $menu-colour-link-hover;
+  }
+  a {
+    color: currentColor;
+    display: block;
+  }
+}
+
+.nav-item--top {
+  &:not(:first-of-type) {
+    border-top: 1px solid $nav-item-divider-colour;
+  }
+}
+
+.nav-list--child {
+  //color: green;
+  margin-left: $nav-item-padding * 2;
+}
+
+.nav-social {
+  color: $colour-white;
+  font-size: 2.6rem;
+  margin-top: $nav-item-padding * 2;
+}
+
+.nav-social a:not(:last-child) {
+  margin-right: 4px;
+}
+
+$social-colours: ( 'facebook': $colour-facebook, 'pinterest': $colour-pinterest, 'instagram': $colour-instagram, 'twitter': $colour-twitter, 'youtube': $colour-youtube, 'linkedin': $colour-linkedin );
+
+@each $brand,
+$colour in $social-colours {
+  .nav-social--#{$brand} {
+    color: currentColor;
+    &:active,
+    &:hover,
+    &:focus {
+      color: lighten($colour, 10%);
+    }
+  }
+}

@@ -1,0 +1,52 @@
+.smaller--only {
+  display: none;
+}
+
+@include media($smaller) {
+  // The first instance of a `courses-link` module
+  .set--panel.courses-link {
+    position: fixed;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    z-index: 999;
+  }
+
+  // Purposeful hyper-specificity for the intercom launcher
+  .back-to-top,
+  #intercom-container #intercom-launcher {
+    bottom: 60px;
+  }
+
+  .smaller--only.block {
+    display: block;
+  }
+  .smaller--only.inline {
+    display: inline;
+  }
+  .smaller--only.inline-block {
+    display: inline-block;
+  }
+}
+
+
+.mobile-nav {
+  color: white;
+  margin-top: -3px;
+  ul {
+    display: flex;
+    flex-flow: row wrap;
+    align-items: stretch;
+    align-content: flex-start;
+  }
+  li {
+    flex: 1 1 50%;
+    text-align: center;
+    &:nth-child(n+3) {
+      margin-top: 15px;
+    }
+  }
+  a {
+    color: currentColor;
+  }
+}
